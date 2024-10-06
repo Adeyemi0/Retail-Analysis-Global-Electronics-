@@ -32,7 +32,7 @@ The following measures were created to evaluate the performance of key business 
 
 - **Sales Measure**
 - **This measure calculates total sales by multiplying the quantity sold with the unit price for each product**
-Sales = SUMX(Sales, Sales[Quantity] * RELATED(Products[Unit Price USD]))
+- Sales = SUMX(Sales, Sales[Quantity] * RELATED(Products[Unit Price USD]))
 
 **Sub-year Sales KPI**
 **Provides a summary of the year-on-year sales percentage, year variance in thousands, and indicates trends with arrows**
