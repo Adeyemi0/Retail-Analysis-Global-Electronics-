@@ -30,8 +30,8 @@ This model provides a solid foundation for analyzing sales trends across differe
 ## Measures
 The following measures were created to evaluate the performance of key business metrics:
 
-**Sales Measure**
-**This measure calculates total sales by multiplying the quantity sold with the unit price for each product**
+- **Sales Measure**
+- **This measure calculates total sales by multiplying the quantity sold with the unit price for each product**
 Sales = SUMX(Sales, Sales[Quantity] * RELATED(Products[Unit Price USD]))
 
 **Sub-year Sales KPI**
