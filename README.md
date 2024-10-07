@@ -45,10 +45,10 @@ This model provides a solid foundation for analyzing sales trends across differe
 The following measures were created to evaluate the performance of key business metrics:
 
 1. **Sales Measure**: This measure calculates total sales by multiplying the quantity sold with the unit price for each product
-- Sales = SUMX(Sales, Sales[Quantity] * RELATED(Products[Unit Price USD]))
+  - Sales = SUMX(Sales, Sales[Quantity] * RELATED(Products[Unit Price USD]))
 
 2. **Sub-year Sales KPI**: Provides a summary of the year-on-year sales percentage, year variance in thousands, and indicates trends with arrows
-- Sub_y sales kpi = 
+  - Sub_y sales kpi = 
 VAR year_diff = [Year_Variance]
 VAR yoy = ([Sales] - [LY Sales]) / [LY Sales]
 VAR year_diff_thousand = year_diff / 1000 /* Convert to thousands */
@@ -57,30 +57,30 @@ VAR sign_trend = IF(year_diff > 0, "▲", "▼")
 RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(year_diff_thousand, "#,0K")
 
 3. **Year Variance**: This measure calculates the variance between the current year's sales and last year's sales.
-- Year_Variance = [Sales] - [LY Sales]
+  - Year_Variance = [Sales] - [LY Sales]
 
 4. **YoY Sales Percentage**: Calculates the year-over-year (YoY) percentage change in sales and displays a trend indicator (▲ or ▼). 
-- YoY Sales % = 
+  - YoY Sales % = 
 VAR _variance = [Sales] - [LY Sales]
 VAR _pct = DIVIDE(_variance, [LY Sales])
 RETURN FORMAT(_pct, "0%") & IF(_pct > 0, " ▲", " ▼")
 
 5. **Sales KPI**: This measure formats the sales value for display, using thousand separators and currency symbols.
-- KPI Sales = FORMAT([Sales], "$#,0") & ""
+  - KPI Sales = FORMAT([Sales], "$#,0") & ""
 
 6. **Last Year Sales**: Retrieves sales from the previous year for comparison purposes.
-- LY Sales = CALCULATE([Sales], PREVIOUSYEAR('Calendar'[Date]))
+  - LY Sales = CALCULATE([Sales], PREVIOUSYEAR('Calendar'[Date]))
 
 7. **Color LY Sales**: Determines the color (Red/Green) based on whether the sales growth compared to last year is negative or positive.
-- color LY sales = 
+  - color LY sales = 
 VAR YoY_growth = DIVIDE([Year_Variance], [LY Sales])
 RETURN IF(YoY_growth < 0, "Red", "Green")
 
 8. **Quantity Measure**: Calculates the total quantity of products sold.
-- Quantity = SUM(Sales[Quantity])
+  - Quantity = SUM(Sales[Quantity])
 
 9. **Sub-year Quantity KPI**: Shows the year-on-year quantity changes with trend indicators and year variance in thousands.
-- Sub_y quantity kpi = 
+  - Sub_y quantity kpi = 
 VAR year_diff = [Quantity] - [LY Quantity]
 VAR yoy = ([Quantity] - [LY Quantity]) / [LY Quantity]
 VAR year_diff_thousand = year_diff / 1000 /* Convert to thousands */
@@ -89,22 +89,22 @@ VAR sign_trend = IF(year_diff > 0, "▲", "▼")
 RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(year_diff_thousand, "#,0K")
 
 10. **Last Year Quantity**: Retrieves the total product quantity sold last year. 
-- LY Quantity = CALCULATE([Quantity], PREVIOUSYEAR('Calendar'[Date]))
+  - LY Quantity = CALCULATE([Quantity], PREVIOUSYEAR('Calendar'[Date]))
 
 11. **Profit Measure**: Calculates the total profit by subtracting the cost from the sales.
-- Profit = [Sales] - [Cost]
+  - Profit = [Sales] - [Cost]
 
 12. **Cost Measure**: This measure calculates the total cost by multiplying the quantity with the unit cost for each product.
-- Cost = SUMX(Sales, Sales[Quantity] * RELATED(Products[Unit Cost USD]))
+  - Cost = SUMX(Sales, Sales[Quantity] * RELATED(Products[Unit Cost USD]))
 
 13. **Profit KPI**: Formats the total profit for display with currency symbols and thousand separators.
-- KPI Profit = FORMAT([Profit], "$#,0") & ""
+  - KPI Profit = FORMAT([Profit], "$#,0") & ""
 
 14. **Last Year Profit**: Retrieves the profit from the previous year for comparison purposes.
-- LY Profit = CALCULATE([Profit], PREVIOUSYEAR('Calendar'[Date]))
+  - LY Profit = CALCULATE([Profit], PREVIOUSYEAR('Calendar'[Date]))
 
 15. **Sub-year Profit KPI**: Displays the year-on-year profit variance and percentage change with trend indicators.
-- Sub_y profit kpi = 
+  - Sub_y profit kpi = 
 VAR year_diff = [Profit] - [LY Profit]
 VAR yoy = ([Profit] - [LY Profit]) / [LY Profit]
 VAR year_diff_thousand = year_diff / 1000 /* Convert to thousands */
@@ -113,18 +113,18 @@ VAR sign_trend = IF(year_diff > 0, "▲", "▼")
 RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(year_diff_thousand, "#,0K")
 
 16. **Color LY Profit**: Assigns a color (Red/Green) based on whether profit growth compared to last year is negative or positive.
-- color LY Profit = 
+  - color LY Profit = 
 VAR YoY_growth = DIVIDE([Profit] - [LY Profit], [LY Profit])
 RETURN IF(YoY_growth < 0, "Red", "Green")
 
 17. **Unsold Products**: Calculates the number of products that were unsold
-- Unsold Products = [Total products] - [Product Sold]
+  - Unsold Products = [Total products] - [Product Sold]
 
 18. **Sold Products**: Counts the total distinct products sold.
-- Product Sold = DISTINCTCOUNT(Sales[ProductKey])
+  - Product Sold = DISTINCTCOUNT(Sales[ProductKey])
 
 19. **Sub-year Unsold Product KPI**: Shows the year-on-year unsold product changes with trend indicators and year variance.
-- Sub_y Unsold Product kpi = 
+  - Sub_y Unsold Product kpi = 
 VAR year_diff = [Unsold Products] - [LY Unsold Products]
 VAR yoy = ([Unsold Products] - [LY Unsold Products]) / [LY Unsold Products]
 VAR year_diff_thousand = year_diff / 1000 /* Convert to thousands */
@@ -133,16 +133,16 @@ VAR sign_trend = IF(year_diff > 0, "▲", "▼")
 RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(year_diff, "#,0")
 
 20. **Rank Product by Profit**: Ranks products based on the total profit generated, with higher profits receiving better ranks.
-- Rank Product by Profit = RANKX(ALL(Products[Subcategory]), [Profit], , DESC)
+  - Rank Product by Profit = RANKX(ALL(Products[Subcategory]), [Profit], , DESC)
 
 21. **Average Profit per Transaction**: Calculates the average profit per transaction.
-- Avg Profit Per Trans = AVERAGEX(VALUES(Sales[Order Number]), [Profit])
+  - Avg Profit Per Trans = AVERAGEX(VALUES(Sales[Order Number]), [Profit])
 
 22. **Average Sales per Transaction**: Calculates the average sales revenue per transaction.
-- Avg Revenue Per Trans = AVERAGEX(VALUES(Sales[Order Number]), [Sales])
+  - Avg Revenue Per Trans = AVERAGEX(VALUES(Sales[Order Number]), [Sales])
 
 23. **Sub-year Average Profit per Transaction KPI**: Displays year-on-year changes in average profit per transaction, with trend indicators and year variance.
-- Sub_y Avg Profit per Trans kpi = 
+  - Sub_y Avg Profit per Trans kpi = 
 VAR year_diff = [Avg Profit Per Trans] - [LY Avg Profit per Trans]
 VAR yoy = ([Avg Profit Per Trans] - [LY Avg Profit per Trans]) / [LY Avg Profit per Trans]
 VAR year_diff_thousand = year_diff / 1000 /* Convert to thousands */
@@ -151,7 +151,7 @@ VAR sign_trend = IF(year_diff > 0, "▲", "▼")
 RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(year_diff, "#,0")
 
 24. **Sub-year Order KPI**: Displays year-on-year changes in the number of orders, with trend indicators and year variance.
-- Sub_y order kpi = 
+  - Sub_y order kpi = 
 VAR year_diff = [Order] - [LY Order]
 VAR yoy = ([Order] - [LY Order]) / [LY Order]
 VAR year_diff_thousand = year_diff / 1000 /* Convert to thousands */
@@ -160,7 +160,7 @@ VAR sign_trend = IF(year_diff > 0, "▲", "▼")
 RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(year_diff, "#,0")
 
 25. **Title Measure**: Provides information about the top N product subcategories in terms of profit
-- Title =
+  - Title =
     VAR TopSubCat = 
         CALCULATE(
             [Profit],
@@ -179,7 +179,7 @@ RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(
     "Top " & SELECTEDVALUE('Top N'[Top N]) & " Product Sub-category generated " & FORMAT(TopSubCatPct, "#.#% of the total Profit")     
 
 26. **Top Age Group**: Identifies the top age group based on profit.
-- Top Age group = 
+  - Top Age group = 
     MAXX(
         TOPN(
             1, 
@@ -191,7 +191,7 @@ RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(
     )
 
 27. **Top Channel**: Determines the top sales channel based on profit.
-- top channel = 
+  - top channel = 
     MAXX(
         TOPN(
             1, 
@@ -203,7 +203,7 @@ RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(
     )
 
 28. **Top City**: Finds the city with the highest profit.
-- top city = 
+  - top city = 
     MAXX(
         TOPN(
             1, 
@@ -215,7 +215,7 @@ RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(
     )
 
 29. **Top Gender**: Identifies the gender with the highest profit.
-- top Gender = 
+  - top Gender = 
     MAXX(
         TOPN(
             1, 
@@ -227,23 +227,23 @@ RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(
     )
 
 30. **Year**: Retrieves the selected year from the Calendar table
-- year = SELECTEDVALUE('Calendar'[Year])
+  - year = SELECTEDVALUE('Calendar'[Year])
 
 31. **Buyers Measure**: Counts the distinct number of buyers (customers) in the sales data.
-- Buyers = DISTINCTCOUNT(Sales[CustomerKey])
+  - Buyers = DISTINCTCOUNT(Sales[CustomerKey])
 
 32. **Color LY Customers**: Determines the color (Red/Green) based on whether the number of buyers has decreased or increased compared to last year.
-- color LY customer = 
+  - color LY customer = 
 VAR YoY_growth = DIVIDE([Buyers] - [LY customers], [LY customers])
 RETURN IF(YoY_growth < 0, "Red", "Green")
 
 33. **Color LY One-Time Customers**: Assigns a color based on the change in one-time buyers compared to last year.
-- color LY one-time customer = 
+  - color LY one-time customer = 
 VAR YoY_growth = DIVIDE([One-Time-Buyers] - [LY one time customers], [LY one time customers])
 RETURN IF(YoY_growth < 0, "Red", "Green")
 
 34. **Customer Rank by Profit**: Ranks customers based on the total profit they have generated. 
-- Customer Rank by Profit = 
+  - Customer Rank by Profit = 
     RANKX(
         ALL(Sales[CustomerKey]), 
         [Profit], 
@@ -253,19 +253,19 @@ RETURN IF(YoY_growth < 0, "Red", "Green")
     )
 
 35. **KPI Buyers**: Formats the number of buyers for display.
-- KPI Buyers = FORMAT([Buyers], "#,0") & ""
+  - KPI Buyers = FORMAT([Buyers], "#,0") & ""
 
 36. **KPI One-Time Buyers**: Formats the number of one-time buyers for display 
-- KPI One-Time-Buyers = FORMAT([One-Time-Buyers], "#,0") & ""
+  - KPI One-Time-Buyers = FORMAT([One-Time-Buyers], "#,0") & ""
 
 37. **Last Year Customers**: Retrieves the number of buyers from the previous year.
-- LY customers = CALCULATE([Buyers], PREVIOUSYEAR('Calendar'[Date]))
+  - LY customers = CALCULATE([Buyers], PREVIOUSYEAR('Calendar'[Date]))
 
 38. **Last Year One-Time Customers**: Retrieves the number of one-time buyers from the previous year.
-- LY one time customers = CALCULATE([One-Time-Buyers], PREVIOUSYEAR('Calendar'[Date]))
+  - LY one time customers = CALCULATE([One-Time-Buyers], PREVIOUSYEAR('Calendar'[Date]))
 
 39. **One-Time Buyers**: Counts the number of customers who made only one purchase.
-- One-Time-Buyers = 
+  - One-Time-Buyers = 
     COUNTROWS(
         FILTER(
             SUMMARIZE(Sales, Customers[CustomerKey], "Total Purchases", [Order]),
@@ -274,7 +274,7 @@ RETURN IF(YoY_growth < 0, "Red", "Green")
     )
 
 40. **Sub-year Customer KPI**: Displays the year-on-year changes in the number of buyers with trend indicators and variance
-- Sub_y customer kpi = 
+  - Sub_y customer kpi = 
     VAR year_diff = [Buyers] - [LY customers]
     VAR yoy = ([Buyers] - [LY customers]) / [LY customers]
     VAR year_diff_thousand = year_diff / 1000 /* Convert to thousands */
@@ -284,7 +284,7 @@ RETURN IF(YoY_growth < 0, "Red", "Green")
         sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(year_diff_thousand, "#,0K")
 
 41. **Sub-year One-Time Customer KPI**: Shows the year-on-year changes in one-time buyers with trend indicators and variance.
-- Sub_y one time customer = 
+  - Sub_y one time customer = 
     VAR year_diff = [One-Time-Buyers] - [LY one time customers]
     VAR yoy = ([One-Time-Buyers] - [LY one time customers]) / [LY one time customers]
     VAR year_diff_thousand = year_diff / 1000 /* Convert to thousands */
@@ -297,7 +297,7 @@ RETURN IF(YoY_growth < 0, "Red", "Green")
 The following calculated tables were created:
 
 1. **Calendar Table**: Creates a calendar table with various date-related columns for time intelligence.
-- Calendar = 
+  - Calendar = 
     ADDCOLUMNS (
         CALENDAR(
             DATE(YEAR(MIN('Sales'[Order Date])), 1, 1),
@@ -315,7 +315,7 @@ The following calculated tables were created:
     )
 
 2. **Date Dimensions**: Defines a set of date dimensions for use in slicers or filters.
-- dDate = {
+  - dDate = {
     ("Quarter", NAMEOF('Calendar'[Quarter]), 0),
     ("Month", NAMEOF('Calendar'[Month]), 1),
     ("Week", NAMEOF('Calendar'[Week]), 2),
@@ -323,7 +323,7 @@ The following calculated tables were created:
 }
 
 3. **Measures Selection**: Lists the available measures for dynamic selection in reports.
-- Measures Selection = {
+  - Measures Selection = {
     ("Sales", NAMEOF('Sales measure'[Sales]), 0),
     ("Avg Profit Per Trans", NAMEOF('Orders measure'[Avg Profit Per Trans]), 1),
     ("Avg Sales Per Trans", NAMEOF('Orders measure'[Avg Revenue Per Trans]), 2),
@@ -335,7 +335,7 @@ The following calculated tables were created:
 }
 
 4. **Top N Table**: Generates a series from 0 to 20 to be used for selecting the top N items.
-- Top N = GENERATESERIES(0, 20, 1)
+  - Top N = GENERATESERIES(0, 20, 1)
 
 ## Insights
 ![](Images/first.png)
