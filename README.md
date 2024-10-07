@@ -4,7 +4,7 @@
 - [Introduction](#introduction)
 - [Data Model](#data-model)
 - [Measures](#measures)
-- [Calculated Columns](#calculated-columns)
+- [Calculated Tables](#calculated-tables)
 - [Insights](#insights)
 - [Conclusions and Recommendations](#conclusions-and-recommendations)
 
@@ -30,13 +30,11 @@ This model provides a solid foundation for analyzing sales trends across differe
 ## Measures
 The following measures were created to evaluate the performance of key business metrics:
 
-- **Sales Measure**
-- **This measure calculates total sales by multiplying the quantity sold with the unit price for each product**
+**Sales Measure**: This measure calculates total sales by multiplying the quantity sold with the unit price for each product
 - Sales = SUMX(Sales, Sales[Quantity] * RELATED(Products[Unit Price USD]))
 
-**Sub-year Sales KPI**
-**Provides a summary of the year-on-year sales percentage, year variance in thousands, and indicates trends with arrows**
-Sub_y sales kpi = 
+**Sub-year Sales KPI**: Provides a summary of the year-on-year sales percentage, year variance in thousands, and indicates trends with arrows
+- Sub_y sales kpi = 
 VAR year_diff = [Year_Variance]
 VAR yoy = ([Sales] - [LY Sales]) / [LY Sales]
 VAR year_diff_thousand = year_diff / 1000 /* Convert to thousands */
@@ -44,13 +42,11 @@ VAR _sign = IF(year_diff > 0, "+", "")
 VAR sign_trend = IF(year_diff > 0, "▲", "▼")
 RETURN sign_trend & " " & _sign & FORMAT(yoy, "#0.0%") & " | " & _sign & FORMAT(year_diff_thousand, "#,0K")
 
-**Year Variance**
-**This measure calculates the variance between the current year's sales and last year's sales.**
-Year_Variance = [Sales] - [LY Sales]
+**Year Variance**: This measure calculates the variance between the current year's sales and last year's sales.
+- Year_Variance = [Sales] - [LY Sales]
 
-**YoY Sales Percentage**
-**Calculates the year-over-year (YoY) percentage change in sales and displays a trend indicator (▲ or ▼).** 
-YoY Sales % = 
+**YoY Sales Percentage**: Calculates the year-over-year (YoY) percentage change in sales and displays a trend indicator (▲ or ▼). 
+- YoY Sales % = 
 VAR _variance = [Sales] - [LY Sales]
 VAR _pct = DIVIDE(_variance, [LY Sales])
 RETURN FORMAT(_pct, "0%") & IF(_pct > 0, " ▲", " ▼")
