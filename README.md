@@ -24,7 +24,7 @@ The sales performance dashboard delivers critical insights that help the busines
 By tracking these factors, the business can pinpoint areas for intervention and strategic improvement.
 
 ## Data Model
-![](./Images/data model.png)
+![](../Images/data model.png)
 The data model for this analysis consists of five main tables:
 1. **Sales**: Tracks all sales transactions.
 2. **Stores**: Contains store-specific information.
