@@ -24,6 +24,7 @@ The sales performance dashboard delivers critical insights that help the busines
 By tracking these factors, the business can pinpoint areas for intervention and strategic improvement.
 
 ## Data Model
+![](https://github.com/Adeyemi0/Retail-Analysis-Global-Electronics-/tree/main/Images/data model.png)
 The data model for this analysis consists of five main tables:
 1. **Sales**: Tracks all sales transactions.
 2. **Stores**: Contains store-specific information.
@@ -337,7 +338,31 @@ The following calculated tables were created:
 - Top N = GENERATESERIES(0, 20, 1)
 
 ## Insights
+![](https://github.com/Adeyemi0/Retail-Analysis-Global-Electronics-/tree/main/Images/first page.png)
+### First Page: Key Performance Indicators (KPIs)
+To assess the reasons behind the revenue decline, I tracked the following KPIs, comparing 2021 to the previous year:
+- **One-time buyers**: 480 buyers, down by 2,724 (-85% YoY).
+- **Number of orders**: 498, down by 4,000 (-89.3% YoY).
+- **Total revenue**: $1,039,288, down by $8.25M (-88.8% YoY).
+- **Quantity sold**: 3,797 items, down by 31,000 (-89% YoY).
+- **Profit**: $608,464, down by $4.8M (-88.8% YoY).
+- **Products sold**: 784 different items, down by 1,217 (-60.8% YoY).
+- **Products without sales**: 1,733 unsold items, an increase of 1,217 (+235.9% YoY).
+- **Average revenue per transaction**: $2,087, up by $82 (+4.1% YoY).
+- **Average profit per transaction**: $1,222, up by $47 (+4.0% YoY).
 
+![](https://github.com/Adeyemi0/Retail-Analysis-Global-Electronics-/tree/main/Images/second page.png)
+### Second Page: Customer Behavior Insights
+In addition to the KPIs, the dashboard provides a deep dive into customer purchasing behavior, highlighting:
+- **Top product categories**: The most profitable product categories in 2021 were Desktops ($0.13M), Projectors and Screens ($0.06M), Touch Screen Phones ($0.05M), and Laptops ($0.05M), among others. These categories accounted for 67.8% of the total profit.
+  
+- **Customer profiles**:
+- Gender: Males contributed 50.79% of total profit, females contributed 49.21%.
+- Profit by city: Starkville ($17k), Houston ($13k), and Shelby ($10k) were the top-performing cities.
+- Profit by age group: The above 60 group led with $0.24M, followed by the 45-60 group ($0.14M) and the 25-45 group ($0.12M).
+- 
+- **Sales channels**: The vast majority of sales (72.48%) occurred offline, with 27.52% taking place through online channels.
+  
 ### Sales Trends:
 - **Revenue Decline**: The store has experienced a consistent year-over-year decline in sales revenue since 2020, primarily driven by reduced product sales and fewer orders.
 - **Product Performance**: The top-selling products continue to generate the highest revenue, but several product categories have seen declining sales. Unsold product levels have increased, indicating inefficiencies in inventory management.
