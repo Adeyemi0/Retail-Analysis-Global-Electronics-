@@ -1,15 +1,27 @@
 # Global Electronic Retail Store Performance Analysis
 
 ## Table of Contents
-- [Introduction](#introduction)
+- [Background Overview](#background-overview)
+- [Executive Summary](#executive-summary)
 - [Data Model](#data-model)
 - [Measures](#measures)
 - [Calculated Tables](#calculated-tables)
 - [Insights](#insights)
 - [Conclusions and Recommendations](#conclusions-and-recommendations)
 
-## Introduction
-A global electronic retail store that sells items such as computers, cell phones, and TVs has experienced a significant decline in revenue since 2020. Management is seeking actionable insights into this revenue decline through the development of a performance dashboard. This dashboard aims to identify key areas impacting performance and provide recommendations for reversing this trend. The data analysis will explore sales, customer behavior, product performance, and store performance, offering both technical and business-level insights to inform strategic decision-making.
+## Background Overview
+Since 2020, a global electronics retailer specializing in products such as computers, cell phones, and TVs has faced a consistent decline in revenue. To address this issue, management required a data-driven solution to understand what factors were driving the drop in sales and identify key opportunities for improvement.
+
+The solution provided centers on a comprehensive dashboard designed to track performance metrics, analyze trends, and offer actionable insights.
+
+## Executive Summary
+The sales performance dashboard delivers critical insights that help the business understand:
+- **Why revenue has dropped**: Identifying shifts in customer behavior and product performance.
+- **What products are currently being purchased**: Highlighting trends in high-performing and underperforming categories.
+- **Who is buying these products**: Detailed customer segmentation by demographics.
+- **The best channels to reach customers**: Analyzing the effectiveness of online and offline sales channels.
+
+By tracking these factors, the business can pinpoint areas for intervention and strategic improvement.
 
 ## Data Model
 The data model for this analysis consists of five main tables:
