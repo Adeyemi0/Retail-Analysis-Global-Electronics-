@@ -351,8 +351,8 @@ To assess the reasons behind the revenue decline, I tracked the following KPIs, 
 - **Average revenue per transaction**: $2,087, up by $82 (+4.1% YoY).
 - **Average profit per transaction**: $1,222, up by $47 (+4.0% YoY).
 
-![](Images/second.png)
 ### Second Page: Customer Behavior Insights
+![](Images/second.png)
 In addition to the KPIs, the dashboard provides a deep dive into customer purchasing behavior, highlighting:
 - **Top product categories**: The most profitable product categories in 2021 were Desktops ($0.13M), Projectors and Screens ($0.06M), Touch Screen Phones ($0.05M), and Laptops ($0.05M), among others. These categories accounted for 67.8% of the total profit.
   
