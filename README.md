@@ -22,7 +22,7 @@ The sales performance dashboard delivers critical insights that help the busines
 - **The best channels to reach customers**: Analyzing the effectiveness of online and offline sales channels.
 
 By tracking these factors, the business can pinpoint areas for intervention and strategic improvement.
-The dashboard image is below and you calso view it live [here](https://app.powerbi.com/view?r=eyJrIjoiNzY0YzRiOTEtZmU0Yy00YWRjLWJhYjYtNTE1YjNjYTVjYmVkIiwidCI6IjQyOWYxMWVhLWM3NmQtNDczMS05M2M5LWM0MDZiNGYzMmE1YSJ9)
+You calso view the Dashboard live [here](https://app.powerbi.com/view?r=eyJrIjoiNzY0YzRiOTEtZmU0Yy00YWRjLWJhYjYtNTE1YjNjYTVjYmVkIiwidCI6IjQyOWYxMWVhLWM3NmQtNDczMS05M2M5LWM0MDZiNGYzMmE1YSJ9)
 
 ## Data Model
 ![](Images/model.png)
