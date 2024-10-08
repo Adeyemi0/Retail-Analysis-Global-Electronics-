@@ -1,4 +1,5 @@
 # Global Electronic Retail Store Performance Analysis
+![](Images/decline.jpg)
 
 ## Table of Contents
 - [Background Overview](#background-overview)
