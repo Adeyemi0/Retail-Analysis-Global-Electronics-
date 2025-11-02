@@ -26,6 +26,9 @@ By tracking these factors, the business can pinpoint areas for intervention and 
 You can also view the Dashboard live [here](https://app.powerbi.com/view?r=eyJrIjoiNzY0YzRiOTEtZmU0Yy00YWRjLWJhYjYtNTE1YjNjYTVjYmVkIiwidCI6IjQyOWYxMWVhLWM3NmQtNDczMS05M2M5LWM0MDZiNGYzMmE1YSJ9)
 
 ## Data Model
+
+![Data Model Diagram](Images/model.png)
+
 The data model for this analysis consists of five main tables:
 1. **Sales**: Tracks all sales transactions.
 2. **Stores**: Contains store-specific information.
@@ -582,6 +585,8 @@ GENERATESERIES(0, 20, 1)
 
 ## Insights
 
+![First Page Dashboard](Images/first.png)
+
 ### First Page: Key Performance Indicators (KPIs)
 To assess the reasons behind the revenue decline, I tracked the following KPIs, comparing 2021 to the previous year:
 - **One-time buyers**: 480 buyers, down by 2,724 (-85% YoY).
@@ -595,6 +600,9 @@ To assess the reasons behind the revenue decline, I tracked the following KPIs, 
 - **Average profit per transaction**: $1,222, up by $47 (+4.0% YoY).
 
 ### Second Page: Customer Behavior Insights
+
+![Second Page Dashboard](Images/second.png)
+
 In addition to the KPIs, the dashboard provides a deep dive into customer purchasing behavior, highlighting:
 
 **Top product categories**: The most profitable product categories in 2021 were Desktops ($0.13M), Projectors and Screens ($0.06M), Touch Screen Phones ($0.05M), and Laptops ($0.05M), among others. These categories accounted for 67.8% of the total profit.
