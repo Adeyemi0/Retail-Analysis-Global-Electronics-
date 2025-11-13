@@ -1,4 +1,5 @@
 # Global Electronic Retail Store Performance Analysis
+![First Page Dashboard](Images/first.png)
 
 ## Table of Contents
 - [Background Overview](#background-overview)
@@ -651,3 +652,4 @@ In addition to the KPIs, the dashboard provides a deep dive into customer purcha
 ---
 
 By focusing on these strategic areas, the store can halt its revenue decline and return to growth in the coming years.
+
